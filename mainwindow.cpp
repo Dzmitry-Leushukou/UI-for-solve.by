@@ -49,6 +49,23 @@ bool MainWindow::correct_directory()
     return false;
 }
 
+QString MainWindow::insert_image(const QString &img)
+{
+    QString local_name="image_"+QString::number(image_num++)+".jpg";
+    image[local_name]=img;
+    QString res="\n\\";
+    res+="begin{figure}[h]\n\\";
+    res+="centering\n\\";
+    res+="includegraphics[width=0.5\\";
+    res+="textwidth]{\\";
+    res+="basepath ";
+    res+=local_name;
+    res+="}\n\\";
+    res+="caption{Description}\n\\";
+    res+="end{figure}\n";
+    return res;
+}
+
 void MainWindow::showMenu()
 {
     HideMenuElements();
@@ -294,5 +311,23 @@ void MainWindow::on_DeleteSolutionButton_clicked()
     for(int i = selectedRows.count() - 1; i >= 0; --i)
         ui->SolutionTable->removeRow(selectedRows.at(i).row());
 
+}
+
+
+void MainWindow::on_InsertImageInLegend_clicked()
+{
+    ui->Legend->setText(ui->Legend->toPlainText()+insert_image(QFileDialog::getOpenFileName(this,tr("Choose image file"),"", tr("Image (*.jpg)"))));
+}
+
+
+void MainWindow::on_InsertImageInNotes_clicked()
+{
+    ui->Notes->setText(ui->Notes->toPlainText()+insert_image(QFileDialog::getOpenFileName(this,tr("Choose image file"),"", tr("Image (*.jpg)"))));
+}
+
+
+void MainWindow::on_InsertImageInTutorial_clicked()
+{
+    ui->Tutorial->setText(ui->Tutorial->toPlainText()+insert_image(QFileDialog::getOpenFileName(this,tr("Choose image file"),"", tr("Image (*.jpg)"))));
 }
 

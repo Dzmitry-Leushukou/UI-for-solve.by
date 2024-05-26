@@ -25,6 +25,8 @@ public:
     void showDirectory();
     void colorise_line(QLineEdit *&, bool);
     bool correct_directory();
+    QString insert_image(const QString&img);
+
     //Menu
     void showMenu();
     void HideMenuElements();
@@ -55,6 +57,12 @@ private slots:
 
     void on_DeleteSolutionButton_clicked();
 
+    void on_InsertImageInLegend_clicked();
+
+    void on_InsertImageInNotes_clicked();
+
+    void on_InsertImageInTutorial_clicked();
+
 private:
     //Fields
     Ui::MainWindow *ui;
@@ -62,6 +70,8 @@ private:
     //Main UI
     QString directory_name,checker_path;
     int8_t menu_id=0;
+    int image_num=0;
+    std::map<QString,QString>image;
 
     //Style
     const QString incorrect_directory_style="color: rgb(224, 27, 36);";
