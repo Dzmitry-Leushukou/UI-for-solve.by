@@ -98,6 +98,25 @@ void MainWindow::showMenu()
 
     case 1://Statement
 
+        ui->Legend->show();
+        ui->Language->show();
+        ui->TaskName->show();
+        ui->InputFormat->show();
+        ui->OutputFormat->show();
+        ui->Notes->show();
+        ui->Tutorial->show();
+        ui->InsertImageInLegend->show();
+        ui->InsertImageInNotes->show();
+        ui->InsertImageInTutorial->show();
+        ui->label_17->show();
+        ui->label_18->show();
+        ui->label_20->show();
+        ui->label_21->show();
+        ui->label_22->show();
+        ui->label_23->show();
+        ui->label_24->show();
+        ui->label_25->show();
+        ui->label_26->show();
         break;
     default:
         ui->AddTestCaseButton->show();
@@ -123,7 +142,16 @@ void MainWindow::HideMenuElements()
     ui->label_14->hide();
     ui->label_15->hide();
     ui->label_16->hide();
+    ui->label_17->hide();
+    ui->label_18->hide();
     ui->label_19->hide();
+    ui->label_20->hide();
+    ui->label_21->hide();
+    ui->label_22->hide();
+    ui->label_23->hide();
+    ui->label_24->hide();
+    ui->label_25->hide();
+    ui->label_26->hide();
     ui->line_6->hide();
     ui->line_7->hide();
     ui->line_8->hide();
@@ -148,6 +176,16 @@ void MainWindow::HideMenuElements()
     ui->DeleteSolutionButton->hide();
     ui->AddTestCaseButton->hide();
     ui->TestCaseTable->hide();
+    ui->Legend->hide();
+    ui->Language->hide();
+    ui->TaskName->hide();
+    ui->InputFormat->hide();
+    ui->OutputFormat->hide();
+    ui->Notes->hide();
+    ui->Tutorial->hide();
+    ui->InsertImageInLegend->hide();
+    ui->InsertImageInNotes->hide();
+    ui->InsertImageInTutorial->hide();
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
