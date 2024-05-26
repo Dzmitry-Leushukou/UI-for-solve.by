@@ -22,9 +22,10 @@ public:
     //Methods
     void showDirectory();
     void colorise_directory_line();
-
     bool correct_directory();
-
+    //Menu
+    void showMenu();
+    void HideMenuElements();
 
 private slots:
 
@@ -33,10 +34,26 @@ private slots:
 
     void on_directory_line_textEdited(const QString &arg1);
 
+    //Menu
+    void on_GeneralInfo_clicked();
+
+    void on_Statement_clicked();
+
+    void on_Checker_clicked();
+
+    void on_Validator_clicked();
+
+    void on_Tests_clicked();
+
+    void on_Solutions_clicked();
+
 private:
     //Fields
     Ui::MainWindow *ui;
+
+    //Main UI
     QString directory_name;
+    int8_t menu_id=0;
 
     //Style
     const QString incorrect_directory_style="color: rgb(224, 27, 36);";
