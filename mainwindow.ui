@@ -758,6 +758,42 @@
      <string>Delete selected solutions</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="AddTestCaseButton">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>774</y>
+      <width>951</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add test case</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="TestCaseTable">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>960</width>
+      <height>760</height>
+     </rect>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>479</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Input</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Output</string>
+     </property>
+    </column>
+   </widget>
    <widget class="QPushButton" name="CreateButton">
     <property name="geometry">
      <rect>

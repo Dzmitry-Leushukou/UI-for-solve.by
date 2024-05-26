@@ -99,12 +99,9 @@ void MainWindow::showMenu()
     case 1://Statement
 
         break;
-
-    case 4:
-        break;
-
     default:
-
+        ui->AddTestCaseButton->show();
+        ui->TestCaseTable->show();
         break;
     }
 }
@@ -149,6 +146,8 @@ void MainWindow::HideMenuElements()
     ui->SolutionTable->hide();
     ui->AddSolutionButton->hide();
     ui->DeleteSolutionButton->hide();
+    ui->AddTestCaseButton->hide();
+    ui->TestCaseTable->hide();
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
@@ -171,6 +170,7 @@ void MainWindow::on_GeneralInfo_clicked()
         return;
 
     ui->Statement->setStyleSheet(default_button);
+    ui->Tests->setStyleSheet(default_button);
     ui->GeneralInfo->setStyleSheet(choosed_button);
     menu_id=0;
     showMenu();
@@ -184,6 +184,7 @@ void MainWindow::on_Statement_clicked()
 
     ui->Statement->setStyleSheet(choosed_button);
     ui->GeneralInfo->setStyleSheet(default_button);
+    ui->Tests->setStyleSheet(default_button);
     menu_id=1;
     showMenu();
 }
@@ -192,10 +193,13 @@ void MainWindow::on_Statement_clicked()
 
 void MainWindow::on_Tests_clicked()
 {
-    if(menu_id==4)
+    if(menu_id==2)
         return;
 
-    menu_id=4;
+    menu_id=2;
+    ui->Statement->setStyleSheet(default_button);
+    ui->GeneralInfo->setStyleSheet(default_button);
+    ui->Tests->setStyleSheet(choosed_button);
     showMenu();
 }
 
