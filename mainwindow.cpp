@@ -63,6 +63,10 @@ void MainWindow::showMenu()
         ui->label_10->show();
         ui->label_11->show();
         ui->label_12->show();
+        ui->label_13->show();
+        ui->label_14->show();
+        ui->label_15->show();
+        ui->label_16->show();
         ui->line_6->show();
         ui->line_7->show();
 
@@ -76,6 +80,11 @@ void MainWindow::showMenu()
         ui->CheckerPath->show();
         ui->ChooseCheckerFileButton->show();
         ui->CheckerCode->show();
+        ui->ValidatorLanguage->show();
+        ui->ValidatorFilename->show();
+        ui->ValidatorPath->show();
+        ui->ChooseValidatorFileButton->show();
+        ui->ValidatorCode->show();
         break;
 
     case 1:
@@ -107,6 +116,10 @@ void MainWindow::HideMenuElements()
     ui->label_10->hide();
     ui->label_11->hide();
     ui->label_12->hide();
+    ui->label_13->hide();
+    ui->label_14->hide();
+    ui->label_15->hide();
+    ui->label_16->hide();
     ui->line_6->hide();
     ui->line_7->hide();
 
@@ -119,7 +132,13 @@ void MainWindow::HideMenuElements()
     ui->CheckerFilename->hide();
     ui->CheckerPath->hide();
     ui->ChooseCheckerFileButton->hide();
-     ui->CheckerCode->hide();
+    ui->CheckerCode->hide();
+    ui->ValidatorLanguage->hide();
+    ui->ValidatorFilename->hide();
+    ui->ValidatorPath->hide();
+    ui->ChooseValidatorFileButton->hide();
+    ui->ValidatorCode->hide();
+
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
@@ -141,6 +160,8 @@ void MainWindow::on_GeneralInfo_clicked()
     if(menu_id==0)
         return;
 
+    ui->Statement->setStyleSheet(default_button);
+    ui->GeneralInfo->setStyleSheet(choosed_button);
     menu_id=0;
     showMenu();
 }
@@ -151,18 +172,12 @@ void MainWindow::on_Statement_clicked()
     if(menu_id==1)
         return;
 
+    ui->Statement->setStyleSheet(choosed_button);
+    ui->GeneralInfo->setStyleSheet(default_button);
     menu_id=1;
     showMenu();
 }
 
-
-void MainWindow::on_Validator_clicked()
-{
-    if(menu_id==3)
-        return;
-
-    menu_id=3;
-}
 
 
 void MainWindow::on_Tests_clicked()

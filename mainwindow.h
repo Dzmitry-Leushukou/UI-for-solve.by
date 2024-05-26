@@ -39,8 +39,6 @@ private slots:
 
     void on_Statement_clicked();
 
-    void on_Validator_clicked();
-
     void on_Tests_clicked();
 
     void on_Solutions_clicked();
@@ -58,5 +56,7 @@ private:
     //Style
     const QString incorrect_directory_style="color: rgb(224, 27, 36);";
     const QString correct_directory_style="color: rgb(51, 209, 122);";
+    const QString choosed_button ="background-color: rgb(45, 185, 103);color: rgb(0, 0, 0);font: 13pt;";
+    const QString default_button ="font:13pt;";
 };
 #endif // MAINWINDOW_H
