@@ -13,6 +13,18 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
+  </property>
   <property name="font">
    <font>
     <pointsize>13</pointsize>
@@ -434,7 +446,7 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="ChooseCheckerFileButton">
@@ -536,7 +548,7 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>100</y>
+      <y>90</y>
       <width>481</width>
       <height>31</height>
      </rect>
@@ -552,7 +564,7 @@
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>77</y>
+      <y>67</y>
       <width>66</width>
       <height>31</height>
      </rect>
@@ -565,7 +577,7 @@
     <property name="geometry">
      <rect>
       <x>859</x>
-      <y>50</y>
+      <y>40</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -578,13 +590,13 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>50</y>
+      <y>40</y>
       <width>351</width>
       <height>31</height>
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
@@ -593,7 +605,7 @@
       <x>490</x>
       <y>9</y>
       <width>481</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -607,17 +619,20 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>170</y>
+      <y>160</y>
       <width>471</width>
-      <height>420</height>
+      <height>270</height>
      </rect>
+    </property>
+    <property name="plainText">
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>130</y>
+      <y>120</y>
       <width>80</width>
       <height>31</height>
      </rect>
@@ -630,7 +645,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>130</y>
+      <y>120</y>
       <width>250</width>
       <height>31</height>
      </rect>
@@ -640,7 +655,7 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>130</y>
+      <y>120</y>
       <width>93</width>
       <height>31</height>
      </rect>
@@ -655,6 +670,119 @@
       <string>Python</string>
      </property>
     </item>
+   </widget>
+   <widget class="QPushButton" name="SolutionFileButton">
+    <property name="geometry">
+     <rect>
+      <x>859</x>
+      <y>480</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Choose file</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="SolutionPath">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>480</y>
+      <width>351</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>440</y>
+      <width>481</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Solutions</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_8">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>440</y>
+      <width>490</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="SolutionTable">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>530</y>
+      <width>471</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>234</number>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>File</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Sample?</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="AddSolutionButton">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>770</y>
+      <width>230</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add solution</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DeleteSolutionButton">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>770</y>
+      <width>230</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete selected solutions</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="CreateButton">
     <property name="geometry">
@@ -714,19 +842,6 @@ font: 13pt;</string>
        </property>
        <property name="text">
         <string>General info</string>
-       </property>
-       <property name="autoExclusive">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="Solutions">
-       <property name="text">
-        <string>Solutions</string>
        </property>
        <property name="autoExclusive">
         <bool>false</bool>

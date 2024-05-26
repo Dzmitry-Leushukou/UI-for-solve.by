@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QTableWidgetItem>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,7 +23,7 @@ public:
 
     //Methods
     void showDirectory();
-    void colorise_directory_line();
+    void colorise_line(QLineEdit *&, bool);
     bool correct_directory();
     //Menu
     void showMenu();
@@ -32,7 +34,7 @@ private slots:
 
     void on_ChangeDirectoryButton_clicked();
 
-    void on_directory_line_textEdited(const QString &arg1);
+    void on_directory_line_textChanged(const QString &arg1);
 
     //Menu
     void on_GeneralInfo_clicked();
@@ -41,9 +43,21 @@ private slots:
 
     void on_Tests_clicked();
 
-    void on_Solutions_clicked();
-
     void on_ChooseCheckerFileButton_clicked();
+
+    void on_SolutionFileButton_clicked();
+
+    void on_AddSolutionButton_clicked();
+
+    void on_ValidatorPath_textChanged(const QString &arg1);
+
+    void on_CheckerPath_textChanged(const QString &arg1);
+
+    void on_SolutionPath_textChanged(const QString &arg1);
+
+    void on_ChooseValidatorFileButton_clicked();
+
+    void on_DeleteSolutionButton_clicked();
 
 private:
     //Fields

@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->SolutionTable->setColumnCount(1);
+    ui->SolutionTable->setColumnWidth(0, 470);
+    //ui->SolutionTable->setColumnWidth(1, 68);
 
     showMenu();
 }
@@ -19,25 +22,26 @@ void MainWindow::showDirectory()
 {
     ui->directory_line->setText(directory_name);
 
-    colorise_directory_line();
+    colorise_line(ui->directory_line,correct_directory());
 }
 
-void MainWindow::colorise_directory_line()
+void MainWindow::colorise_line(QLineEdit *&line, bool ok)
 {
-    if(!correct_directory())
+    if(!ok)
     {
-        ui->directory_line->setStyleSheet(incorrect_directory_style);
+       line->setStyleSheet(incorrect_directory_style);
         return;
     }
 
-    ui->directory_line->setStyleSheet(correct_directory_style);
+    line->setStyleSheet(correct_directory_style);
 }
+
 
 bool MainWindow::correct_directory()
 {
     QDir dir(directory_name);
 
-    if(dir.exists())
+    if(dir.exists()&&!QFileInfo(directory_name).isFile())
     {
         return true;
     }
@@ -67,8 +71,10 @@ void MainWindow::showMenu()
         ui->label_14->show();
         ui->label_15->show();
         ui->label_16->show();
+        ui->label_19->show();
         ui->line_6->show();
         ui->line_7->show();
+        ui->line_8->show();
 
         ui->ContestName->show();
         ui->InputFile->show();
@@ -85,13 +91,15 @@ void MainWindow::showMenu()
         ui->ValidatorPath->show();
         ui->ChooseValidatorFileButton->show();
         ui->ValidatorCode->show();
+        ui->SolutionTable->show();
+        ui->SolutionPath->show();
+        ui->SolutionFileButton->show();
+        ui->AddSolutionButton->show();
+        ui->DeleteSolutionButton->show();
         break;
 
-    case 1:
-        break;
+    case 1://Statement
 
-
-    case 3:
         break;
 
     case 4:
@@ -120,8 +128,10 @@ void MainWindow::HideMenuElements()
     ui->label_14->hide();
     ui->label_15->hide();
     ui->label_16->hide();
+    ui->label_19->hide();
     ui->line_6->hide();
     ui->line_7->hide();
+    ui->line_8->hide();
 
     ui->ContestName->hide();
     ui->InputFile->hide();
@@ -138,20 +148,24 @@ void MainWindow::HideMenuElements()
     ui->ValidatorPath->hide();
     ui->ChooseValidatorFileButton->hide();
     ui->ValidatorCode->hide();
-
+    ui->SolutionTable->hide();
+    ui->SolutionPath->hide();
+    ui->SolutionFileButton->hide();
+    ui->AddSolutionButton->hide();
+    ui->DeleteSolutionButton->hide();
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
 {
-    directory_name = QFileDialog::getExistingDirectory(this, tr("Choose directory"),directory_name,QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    directory_name = QFileDialog::getExistingDirectory(this, tr("Choose directory"),"",QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     showDirectory();
 }
 
 
-void MainWindow::on_directory_line_textEdited(const QString &arg1)
+void MainWindow::on_directory_line_textChanged(const QString &arg1)
 {
     directory_name=arg1;
-    colorise_directory_line();
+    showDirectory();
 }
 
 
@@ -190,19 +204,63 @@ void MainWindow::on_Tests_clicked()
 }
 
 
-void MainWindow::on_Solutions_clicked()
-{
-    if(menu_id==5)
-        return;
-
-    menu_id=5;
-    showMenu();
-}
-
 
 void MainWindow::on_ChooseCheckerFileButton_clicked()
 {
-    checker_path=QFileDialog::getOpenFileName(this,tr("Choose checker file"),checker_path, tr("Checker Files (*.cpp *.py)"));
+    checker_path=QFileDialog::getOpenFileName(this,tr("Choose checker file"),"", tr("Checker Files (*.cpp *.py)"));
     ui->CheckerPath->setText(checker_path);
+}
+
+
+void MainWindow::on_SolutionFileButton_clicked()
+{
+    ui->SolutionPath->setText(QFileDialog::getOpenFileName(this,tr("Choose checker file"),"", tr("Checker Files (*.cpp *.py)")));
+}
+
+
+void MainWindow::on_AddSolutionButton_clicked()
+{
+    if(!QFile(ui->SolutionPath->text()).exists()||!QFileInfo(ui->SolutionPath->text()).isFile())
+    {
+        QMessageBox::warning(this,"Wrong path","You can`t add wrong file");
+        return;
+    }
+    ui->SolutionTable->setRowCount(ui->SolutionTable->rowCount()+1);
+    QTableWidgetItem *it1=new QTableWidgetItem();
+    it1->setText(ui->SolutionPath->text());
+    ui->SolutionTable->setItem(ui->SolutionTable->rowCount()-1, 0, it1);
+}
+
+
+void MainWindow::on_ValidatorPath_textChanged(const QString &arg1)
+{
+    colorise_line(ui->ValidatorPath,QFile(arg1).exists()&&QFileInfo(arg1).isFile());
+}
+
+
+void MainWindow::on_CheckerPath_textChanged(const QString &arg1)
+{
+    colorise_line(ui->CheckerPath,QFile(arg1).exists()&&QFileInfo(arg1).isFile());
+}
+
+
+void MainWindow::on_SolutionPath_textChanged(const QString &arg1)
+{
+    colorise_line(ui->SolutionPath,QFile(arg1).exists()&&QFileInfo(arg1).isFile());
+}
+
+
+void MainWindow::on_ChooseValidatorFileButton_clicked()
+{
+    ui->ValidatorPath->setText(QFileDialog::getOpenFileName(this,tr("Choose checker file"),"", tr("Checker Files (*.cpp *.py)")));
+}
+
+
+void MainWindow::on_DeleteSolutionButton_clicked()
+{
+    QModelIndexList selectedRows = ui->SolutionTable->selectionModel()->selectedRows();
+    for(int i = selectedRows.count() - 1; i >= 0; --i)
+        ui->SolutionTable->removeRow(selectedRows.at(i).row());
+
 }
 
