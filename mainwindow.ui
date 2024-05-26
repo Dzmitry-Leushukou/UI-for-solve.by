@@ -801,7 +801,7 @@
      <rect>
       <x>6</x>
       <y>774</y>
-      <width>951</width>
+      <width>475</width>
       <height>21</height>
      </rect>
     </property>
@@ -821,6 +821,9 @@
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>479</number>
     </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>Input</string>
@@ -829,6 +832,11 @@
     <column>
      <property name="text">
       <string>Output</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Sample</string>
      </property>
     </column>
    </widget>
@@ -1137,6 +1145,19 @@ format:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DeleteTestCaseButton">
+    <property name="geometry">
+     <rect>
+      <x>482</x>
+      <y>774</y>
+      <width>475</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete selected tests</string>
     </property>
    </widget>
    <widget class="QPushButton" name="CreateButton">

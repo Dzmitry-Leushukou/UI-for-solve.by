@@ -63,6 +63,10 @@ private slots:
 
     void on_InsertImageInTutorial_clicked();
 
+    void on_AddTestCaseButton_clicked();
+
+    void on_DeleteTestCaseButton_clicked();
+
 private:
     //Fields
     Ui::MainWindow *ui;

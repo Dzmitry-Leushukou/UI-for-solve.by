@@ -10,6 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->SolutionTable->setColumnWidth(0, 470);
     ui->SolutionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
+    //960
+    ui->TestCaseTable->setColumnWidth(0, 446);
+    ui->TestCaseTable->setColumnWidth(1, 446);
+    ui->TestCaseTable->setColumnWidth(2, 65);
+
+
     showMenu();
 }
 
@@ -138,6 +144,7 @@ void MainWindow::showMenu()
     default:
         ui->AddTestCaseButton->show();
         ui->TestCaseTable->show();
+        ui->DeleteTestCaseButton->show();
         break;
     }
 }
@@ -203,6 +210,7 @@ void MainWindow::HideMenuElements()
     ui->InsertImageInLegend->hide();
     ui->InsertImageInNotes->hide();
     ui->InsertImageInTutorial->hide();
+    ui->DeleteTestCaseButton->hide();
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
@@ -329,5 +337,22 @@ void MainWindow::on_InsertImageInNotes_clicked()
 void MainWindow::on_InsertImageInTutorial_clicked()
 {
     ui->Tutorial->setText(ui->Tutorial->toPlainText()+insert_image(QFileDialog::getOpenFileName(this,tr("Choose image file"),"", tr("Image (*.jpg)"))));
+}
+
+
+void MainWindow::on_AddTestCaseButton_clicked()
+{
+    QTableWidgetItem * it=new QTableWidgetItem();
+    it->setCheckState(Qt::Unchecked);
+    ui->TestCaseTable->setRowCount(ui->TestCaseTable->rowCount()+1);
+    ui->TestCaseTable->setItem(ui->TestCaseTable->rowCount()-1,2,it);
+}
+
+
+void MainWindow::on_DeleteTestCaseButton_clicked()
+{
+    QModelIndexList selectedRows = ui->TestCaseTable->selectionModel()->selectedRows();
+    for(int i = selectedRows.count() - 1; i >= 0; --i)
+        ui->TestCaseTable->removeRow(selectedRows.at(i).row());
 }
 
