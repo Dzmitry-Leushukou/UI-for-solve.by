@@ -621,7 +621,7 @@
       <x>490</x>
       <y>160</y>
       <width>471</width>
-      <height>270</height>
+      <height>290</height>
      </rect>
     </property>
     <property name="plainText">
@@ -671,37 +671,11 @@
      </property>
     </item>
    </widget>
-   <widget class="QPushButton" name="SolutionFileButton">
-    <property name="geometry">
-     <rect>
-      <x>859</x>
-      <y>480</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Choose file</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="SolutionPath">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>480</y>
-      <width>351</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_19">
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>440</y>
+      <y>470</y>
       <width>481</width>
       <height>31</height>
      </rect>
@@ -717,7 +691,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>440</y>
+      <y>470</y>
       <width>490</width>
       <height>3</height>
      </rect>
@@ -730,13 +704,18 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>530</y>
+      <y>510</y>
       <width>471</width>
-      <height>231</height>
+      <height>251</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
+     <bool>false</bool>
     </attribute>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>true</bool>
@@ -752,11 +731,6 @@
       <string>File</string>
      </property>
     </column>
-    <column>
-     <property name="text">
-      <string>Sample?</string>
-     </property>
-    </column>
    </widget>
    <widget class="QPushButton" name="AddSolutionButton">
     <property name="geometry">
@@ -768,7 +742,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Add solution</string>
+     <string>Add solutions</string>
     </property>
    </widget>
    <widget class="QPushButton" name="DeleteSolutionButton">

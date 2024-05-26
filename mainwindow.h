@@ -45,15 +45,11 @@ private slots:
 
     void on_ChooseCheckerFileButton_clicked();
 
-    void on_SolutionFileButton_clicked();
-
     void on_AddSolutionButton_clicked();
 
     void on_ValidatorPath_textChanged(const QString &arg1);
 
     void on_CheckerPath_textChanged(const QString &arg1);
-
-    void on_SolutionPath_textChanged(const QString &arg1);
 
     void on_ChooseValidatorFileButton_clicked();
 

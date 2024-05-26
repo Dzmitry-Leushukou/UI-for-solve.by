@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->SolutionTable->setColumnCount(1);
     ui->SolutionTable->setColumnWidth(0, 470);
-    //ui->SolutionTable->setColumnWidth(1, 68);
+    ui->SolutionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     showMenu();
 }
@@ -92,8 +92,6 @@ void MainWindow::showMenu()
         ui->ChooseValidatorFileButton->show();
         ui->ValidatorCode->show();
         ui->SolutionTable->show();
-        ui->SolutionPath->show();
-        ui->SolutionFileButton->show();
         ui->AddSolutionButton->show();
         ui->DeleteSolutionButton->show();
         break;
@@ -149,8 +147,6 @@ void MainWindow::HideMenuElements()
     ui->ChooseValidatorFileButton->hide();
     ui->ValidatorCode->hide();
     ui->SolutionTable->hide();
-    ui->SolutionPath->hide();
-    ui->SolutionFileButton->hide();
     ui->AddSolutionButton->hide();
     ui->DeleteSolutionButton->hide();
 }
@@ -212,23 +208,23 @@ void MainWindow::on_ChooseCheckerFileButton_clicked()
 }
 
 
-void MainWindow::on_SolutionFileButton_clicked()
-{
-    ui->SolutionPath->setText(QFileDialog::getOpenFileName(this,tr("Choose checker file"),"", tr("Checker Files (*.cpp *.py)")));
-}
 
 
 void MainWindow::on_AddSolutionButton_clicked()
 {
-    if(!QFile(ui->SolutionPath->text()).exists()||!QFileInfo(ui->SolutionPath->text()).isFile())
+    QStringList fileNames;
+    QFileDialog dialog;
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+    if (dialog.exec())
+        fileNames = dialog.selectedFiles();
+
+    for(auto& i:fileNames)
     {
-        QMessageBox::warning(this,"Wrong path","You can`t add wrong file");
-        return;
+        ui->SolutionTable->setRowCount(ui->SolutionTable->rowCount()+1);
+        QTableWidgetItem *it1=new QTableWidgetItem();
+        it1->setText(i);
+        ui->SolutionTable->setItem(ui->SolutionTable->rowCount()-1, 0, it1);
     }
-    ui->SolutionTable->setRowCount(ui->SolutionTable->rowCount()+1);
-    QTableWidgetItem *it1=new QTableWidgetItem();
-    it1->setText(ui->SolutionPath->text());
-    ui->SolutionTable->setItem(ui->SolutionTable->rowCount()-1, 0, it1);
 }
 
 
@@ -241,12 +237,6 @@ void MainWindow::on_ValidatorPath_textChanged(const QString &arg1)
 void MainWindow::on_CheckerPath_textChanged(const QString &arg1)
 {
     colorise_line(ui->CheckerPath,QFile(arg1).exists()&&QFileInfo(arg1).isFile());
-}
-
-
-void MainWindow::on_SolutionPath_textChanged(const QString &arg1)
-{
-    colorise_line(ui->SolutionPath,QFile(arg1).exists()&&QFileInfo(arg1).isFile());
 }
 
 
