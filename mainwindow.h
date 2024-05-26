@@ -39,8 +39,6 @@ private slots:
 
     void on_Statement_clicked();
 
-    void on_Checker_clicked();
-
     void on_Validator_clicked();
 
     void on_Tests_clicked();

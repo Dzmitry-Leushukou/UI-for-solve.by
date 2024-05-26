@@ -59,19 +59,28 @@ void MainWindow::showMenu()
         ui->label_6->show();
         ui->label_7->show();
         ui->label_8->show();
+        ui->label_9->show();
+        ui->label_10->show();
+        ui->label_11->show();
+        ui->label_12->show();
+        ui->line_6->show();
+        ui->line_7->show();
 
         ui->ContestName->show();
         ui->InputFile->show();
         ui->OutputFile->show();
         ui->MemoryLimit->show();
         ui->TimeLimit->show();
+        ui->CheckerLanguage->show();
+        ui->CheckerFilename->show();
+        ui->CheckerPath->show();
+        ui->ChooseCheckerFileButton->show();
+        ui->CheckerCode->show();
         break;
 
     case 1:
         break;
 
-    case 2:
-        break;
 
     case 3:
         break;
@@ -94,12 +103,23 @@ void MainWindow::HideMenuElements()
     ui->label_6->hide();
     ui->label_7->hide();
     ui->label_8->hide();
+    ui->label_9->hide();
+    ui->label_10->hide();
+    ui->label_11->hide();
+    ui->label_12->hide();
+    ui->line_6->hide();
+    ui->line_7->hide();
 
     ui->ContestName->hide();
     ui->InputFile->hide();
     ui->OutputFile->hide();
     ui->MemoryLimit->hide();
     ui->TimeLimit->hide();
+    ui->CheckerLanguage->hide();
+    ui->CheckerFilename->hide();
+    ui->CheckerPath->hide();
+    ui->ChooseCheckerFileButton->hide();
+     ui->CheckerCode->hide();
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
@@ -132,16 +152,6 @@ void MainWindow::on_Statement_clicked()
         return;
 
     menu_id=1;
-    showMenu();
-}
-
-
-void MainWindow::on_Checker_clicked()
-{
-    if(menu_id==2)
-        return;
-
-    menu_id=2;
     showMenu();
 }
 
