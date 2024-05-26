@@ -31,6 +31,12 @@ public:
     void showMenu();
     void HideMenuElements();
 
+    //Checkers
+    bool check_pathes();
+    bool correct_validator();
+    bool correct_checker();
+    bool correct_solutions();
+
 private slots:
 
 
@@ -66,6 +72,8 @@ private slots:
     void on_AddTestCaseButton_clicked();
 
     void on_DeleteTestCaseButton_clicked();
+
+    void on_CreateButton_clicked();
 
 private:
     //Fields

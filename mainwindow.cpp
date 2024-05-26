@@ -213,6 +213,80 @@ void MainWindow::HideMenuElements()
     ui->DeleteTestCaseButton->hide();
 }
 
+bool MainWindow::check_pathes()
+{
+    if(ui->directory_line->text()!="")
+    {
+        if(ui->directory_line->styleSheet()==correct_directory_style&&(QFile(ui->directory_line->text()).exists()&&!QFileInfo(ui->directory_line->text()).isFile()))
+        {
+            return correct_validator()&& correct_checker()&&correct_solutions();
+        }
+    }
+    QMessageBox::warning(this,"Validator path error", "Incorrect direction path");
+    return false;
+    //4return true;
+}
+
+bool MainWindow::correct_validator()
+{
+    if(ui->ValidatorPath->text()!="")
+    {
+        if(ui->ValidatorPath->styleSheet()==correct_directory_style&&(QFile(ui->ValidatorPath->text()).exists()&&QFileInfo(ui->ValidatorPath->text()).isFile()))
+            return true;
+
+        QMessageBox::warning(this,"Validator path error", "Incorrect validator path");
+        return false;
+
+    }
+
+    qDebug()<<"Create validator";
+    QFile file("validator.cpp");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ui->ValidatorCode->toPlainText();
+        file.close();
+    }
+
+    return true;
+
+}
+
+bool MainWindow::correct_checker()
+{
+    if(ui->CheckerPath->text()!="")
+    {
+        if(ui->CheckerPath->styleSheet()==correct_directory_style&&(QFile(ui->CheckerPath->text()).exists()&&QFileInfo(ui->CheckerPath->text()).isFile()))
+            return true;
+
+        QMessageBox::warning(this,"Checker path error", "Incorrect checker path");
+        return false;
+
+    }
+
+    QFile file("checker.cpp");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ui->CheckerCode->toPlainText();
+        file.close();
+    }
+    return true;
+}
+
+bool MainWindow::correct_solutions()
+{
+    for(int i=0;i<ui->SolutionTable->rowCount();i++)
+    {
+        if(!QFile(ui->SolutionTable->itemAt(i,0)->text()).exists()||!QFileInfo(ui->SolutionTable->itemAt(i,0)->text()).isFile())
+        {
+            QMessageBox::warning(this,"Solutions path error", "Incorrect path:"+ui->SolutionTable->itemAt(i,0)->text());
+            return false;
+        }
+    }
+    return true;
+}
+
 void MainWindow::on_ChangeDirectoryButton_clicked()
 {
     directory_name = QFileDialog::getExistingDirectory(this, tr("Choose directory"),"",QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
@@ -354,5 +428,15 @@ void MainWindow::on_DeleteTestCaseButton_clicked()
     QModelIndexList selectedRows = ui->TestCaseTable->selectionModel()->selectedRows();
     for(int i = selectedRows.count() - 1; i >= 0; --i)
         ui->TestCaseTable->removeRow(selectedRows.at(i).row());
+}
+
+
+void MainWindow::on_CreateButton_clicked()
+{
+    if(!check_pathes())
+    {
+        return;
+    }
+
 }
 
