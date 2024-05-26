@@ -45,12 +45,14 @@ private slots:
 
     void on_Solutions_clicked();
 
+    void on_ChooseCheckerFileButton_clicked();
+
 private:
     //Fields
     Ui::MainWindow *ui;
 
     //Main UI
-    QString directory_name;
+    QString directory_name,checker_path;
     int8_t menu_id=0;
 
     //Style

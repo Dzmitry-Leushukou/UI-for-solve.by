@@ -184,3 +184,10 @@ void MainWindow::on_Solutions_clicked()
     showMenu();
 }
 
+
+void MainWindow::on_ChooseCheckerFileButton_clicked()
+{
+    checker_path=QFileDialog::getOpenFileName(this,tr("Choose checker file"),checker_path, tr("Checker Files (*.cpp *.py)"));
+    ui->CheckerPath->setText(checker_path);
+}
+

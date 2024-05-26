@@ -429,7 +429,7 @@
      <rect>
       <x>0</x>
       <y>250</y>
-      <width>270</width>
+      <width>351</width>
       <height>31</height>
      </rect>
     </property>
@@ -440,9 +440,9 @@
    <widget class="QPushButton" name="ChooseCheckerFileButton">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>369</x>
       <y>250</y>
-      <width>180</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -454,9 +454,9 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>280</y>
+      <y>277</y>
       <width>66</width>
-      <height>17</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
