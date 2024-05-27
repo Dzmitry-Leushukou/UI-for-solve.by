@@ -269,7 +269,7 @@
      </font>
     </property>
     <property name="text">
-     <string>stdin</string>
+     <string>standart input</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -308,7 +308,7 @@
      </font>
     </property>
     <property name="text">
-     <string>stdout</string>
+     <string>standart output</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -533,7 +533,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>choose language, filename and write code below</string>
+     <string>choose language and write code below</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -559,29 +559,6 @@
      </property>
     </item>
    </widget>
-   <widget class="QTextEdit" name="CheckerFilename">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>330</y>
-      <width>250</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>330</y>
-      <width>80</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Filename:</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
@@ -592,7 +569,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>choose language, filename and write code below</string>
+     <string>choose language and write code below</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -664,29 +641,6 @@
     </property>
     <property name="plainText">
      <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_16">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>120</y>
-      <width>80</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Filename:</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="ValidatorFilename">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>120</y>
-      <width>250</width>
-      <height>31</height>
-     </rect>
     </property>
    </widget>
    <widget class="QComboBox" name="ValidatorLanguage">

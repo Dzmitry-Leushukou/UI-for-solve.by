@@ -21,7 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    //Methods
+    //MethodsFile
     void showDirectory();
     void colorise_line(QLineEdit *&, bool);
     bool correct_directory();

@@ -89,11 +89,11 @@ void MainWindow::showMenu()
         ui->label_9->show();
         ui->label_10->show();
         ui->label_11->show();
-        ui->label_12->show();
+        //ui->label_12->show();
         ui->label_13->show();
         ui->label_14->show();
         ui->label_15->show();
-        ui->label_16->show();
+        //ui->label_16->show();
         ui->label_19->show();
         ui->line_6->show();
         ui->line_7->show();
@@ -105,12 +105,12 @@ void MainWindow::showMenu()
         ui->MemoryLimit->show();
         ui->TimeLimit->show();
         ui->CheckerLanguage->show();
-        ui->CheckerFilename->show();
+        //ui->CheckerFilename->show();
         ui->CheckerPath->show();
         ui->ChooseCheckerFileButton->show();
         ui->CheckerCode->show();
         ui->ValidatorLanguage->show();
-        ui->ValidatorFilename->show();
+        //ui->ValidatorFilename->show();
         ui->ValidatorPath->show();
         ui->ChooseValidatorFileButton->show();
         ui->ValidatorCode->show();
@@ -161,11 +161,11 @@ void MainWindow::HideMenuElements()
     ui->label_9->hide();
     ui->label_10->hide();
     ui->label_11->hide();
-    ui->label_12->hide();
+    //ui->label_12->hide();
     ui->label_13->hide();
     ui->label_14->hide();
     ui->label_15->hide();
-    ui->label_16->hide();
+    //ui->label_16->hide();
     ui->label_17->hide();
     ui->label_18->hide();
     ui->label_19->hide();
@@ -186,12 +186,12 @@ void MainWindow::HideMenuElements()
     ui->MemoryLimit->hide();
     ui->TimeLimit->hide();
     ui->CheckerLanguage->hide();
-    ui->CheckerFilename->hide();
+    //ui->CheckerFilename->hide();
     ui->CheckerPath->hide();
     ui->ChooseCheckerFileButton->hide();
     ui->CheckerCode->hide();
     ui->ValidatorLanguage->hide();
-    ui->ValidatorFilename->hide();
+    //ui->ValidatorFilename->hide();
     ui->ValidatorPath->hide();
     ui->ChooseValidatorFileButton->hide();
     ui->ValidatorCode->hide();
@@ -239,7 +239,7 @@ bool MainWindow::correct_validator()
 
     }
 
-    qDebug()<<"Create validator";
+    //qDebug()<<"Create validator";
     QFile file("validator.cpp");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
