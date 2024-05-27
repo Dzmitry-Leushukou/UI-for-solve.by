@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QTableWidgetItem>
 #include <QMessageBox>
+#include "directory_script.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,7 +27,8 @@ public:
     void colorise_line(QLineEdit *&, bool);
     bool correct_directory();
     QString insert_image(const QString&img);
-
+    void file_out(const QString& dir,const QString& data);
+    void image_detect(const QString& text, const QString& new_dir);
     //Menu
     void showMenu();
     void HideMenuElements();
@@ -36,6 +38,8 @@ public:
     bool correct_validator();
     bool correct_checker();
     bool correct_solutions();
+    bool check_general_info();
+    bool check_statement();
 
 private slots:
 
@@ -80,7 +84,7 @@ private:
     Ui::MainWindow *ui;
 
     //Main UI
-    QString directory_name,checker_path;
+    QString directory_name,checker_path,validator_path;
     int8_t menu_id=0;
     int image_num=0;
     std::map<QString,QString>image;

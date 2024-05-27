@@ -909,7 +909,7 @@ format:</string>
       <x>90</x>
       <y>32</y>
       <width>291</width>
-      <height>21</height>
+      <height>23</height>
      </rect>
     </property>
    </widget>
@@ -943,16 +943,6 @@ format:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Language">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>2</y>
-      <width>291</width>
-      <height>21</height>
-     </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="Legend">
@@ -1031,19 +1021,6 @@ format:</string>
     </property>
     <property name="icon">
      <iconset theme="image-x-generic"/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_26">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>0</y>
-      <width>441</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>(Begins with a lowercase character)</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="InputFormat">
@@ -1160,6 +1137,26 @@ font: 13pt;</string>
     <property name="flat">
      <bool>false</bool>
     </property>
+   </widget>
+   <widget class="QComboBox" name="Language">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>3</y>
+      <width>291</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Russian</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>English</string>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
