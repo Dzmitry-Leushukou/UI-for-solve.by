@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/UI_autogen",
+	"CMAKE_BINARY_DIR" : "/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/dzmitry/Programming/Solve/UI",
+	"CMAKE_SOURCE_DIR" : "/home/dzmitry/Programming/Solve/UI",
+	"INCLUDE_DIR" : "/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/UI_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/dzmitry/Programming/Solve/UI/Resource/logo.svg",
+		"/home/dzmitry/Programming/Solve/UI/Resource/icon.png"
+	],
+	"LOCK_FILE" : "/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/UI_autogen.dir/AutoRcc_img_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "img" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_img.cpp",
+	"RCC_EXECUTABLE" : "/home/dzmitry/Qt/6.6.2/gcc_64/./libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/UI_autogen.dir/AutoRcc_img_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/dzmitry/Programming/Solve/UI/img.qrc",
+	"VERBOSITY" : 0
+}

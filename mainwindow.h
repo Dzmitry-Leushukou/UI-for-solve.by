@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QTableWidgetItem>
 #include <QMessageBox>
+
 #include "directory_script.h"
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +42,8 @@ public:
     bool check_general_info();
     bool check_statement();
 
+    //Fields
+    QString directory_name;
 private slots:
 
 
@@ -84,7 +87,7 @@ private:
     Ui::MainWindow *ui;
 
     //Main UI
-    QString directory_name,checker_path,validator_path;
+    QString checker_path,validator_path;
     int8_t menu_id=0;
     int image_num=0;
     std::map<QString,QString>image;

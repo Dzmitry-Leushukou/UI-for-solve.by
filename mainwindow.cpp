@@ -11,9 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->SolutionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     //960
-    ui->TestCaseTable->setColumnWidth(0, 446);
-    ui->TestCaseTable->setColumnWidth(1, 446);
-    ui->TestCaseTable->setColumnWidth(2, 65);
+    ui->TestCaseTable->setColumnWidth(0, 446*2);
+    ui->TestCaseTable->setColumnWidth(1, 65);
 
 
     showMenu();
@@ -495,10 +494,23 @@ void MainWindow::on_InsertImageInTutorial_clicked()
 
 void MainWindow::on_AddTestCaseButton_clicked()
 {
-    QTableWidgetItem * it=new QTableWidgetItem();
-    it->setCheckState(Qt::Unchecked);
-    ui->TestCaseTable->setRowCount(ui->TestCaseTable->rowCount()+1);
-    ui->TestCaseTable->setItem(ui->TestCaseTable->rowCount()-1,2,it);
+    QStringList fileNames;
+    QFileDialog dialog;
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+    if (dialog.exec())
+        fileNames = dialog.selectedFiles();
+
+    for(auto& i:fileNames)
+    {
+        ui->TestCaseTable->setRowCount(ui->TestCaseTable->rowCount()+1);
+        QTableWidgetItem *it1=new QTableWidgetItem();
+        it1->setText(i);
+        ui->TestCaseTable->setItem(ui->TestCaseTable->rowCount()-1, 0, it1);
+        QTableWidgetItem * it=new QTableWidgetItem();
+        it->setCheckState(Qt::Unchecked);
+        ui->TestCaseTable->setItem(ui->TestCaseTable->rowCount()-1,1,it);
+    }
+
 }
 
 
@@ -517,6 +529,13 @@ void MainWindow::on_CreateButton_clicked()
     {
         return;
     }
+
+    for(int i=0;i<ui->TestCaseTable->rowCount();i++)
+        if(!QFile(ui->TestCaseTable->    item(i,0)->text()).exists()||!QFileInfo(ui->TestCaseTable->    item(i,0)->text()).isFile())
+        {
+            QMessageBox::warning(this,"Test path error", "Incorrect path:"+ui->TestCaseTable-> item(i,0)->text());
+            return;
+        }
 
     //qDebug()<<"Create directory";
     create_directory(ui->directory_line->text().toStdString());
@@ -564,15 +583,16 @@ void MainWindow::on_CreateButton_clicked()
     //Samples
     int j=1;
     QString ext=".0";
+
+
     for(int i=0;i<ui->TestCaseTable->rowCount();i++)
     {
         //qDebug()<<i<<" "<<(ui->TestCaseTable->    item(i,2)->checkState()== Qt::Checked);
-        if(ui->TestCaseTable->    item(i,2)->checkState()== Qt::Checked)
+        if(ui->TestCaseTable->    item(i,1)->checkState()== Qt::Checked)
         {
             if(j>=10)
                 ext="";
-            file_out(directory_name+dir+"sample"+ext+QString::number(j),ui->TestCaseTable->    item(i,0)->text());
-            file_out(directory_name+dir+"sample"+ext+QString::number(j)+".a",ui->TestCaseTable->    item(i,1)->text());
+            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"sample"+ext+QString::number(j));
 
             j++;
         }
@@ -585,8 +605,7 @@ void MainWindow::on_CreateButton_clicked()
     {
         if(i>=10)
             ext1="";
-            file_out(directory_name+dir+ext1+QString::number(i+1),ui->TestCaseTable->    item(i,0)->text());
-            file_out(directory_name+dir+ext1+QString::number(i+1)+".a",ui->TestCaseTable->    item(i,1)->text());
+        QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+ext1+QString::number(i+1));
     }
 
     QFile::copy(checker_path, directory_name+"\\checker.cpp");
@@ -601,5 +620,6 @@ void MainWindow::on_CreateButton_clicked()
         QFile::copy(ui->SolutionTable->item(i,0)->text(), directory_name+"\\solutions\\"+fileName);
     }
 
-    QMessageBox::information(this,"Task creator","Task file was created");
+    QMessageBox::information(this,"Task creator","Task files was created");
+    std::cout<<directory_name.toStdString();
 }
