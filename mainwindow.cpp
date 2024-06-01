@@ -598,6 +598,68 @@ void MainWindow::on_CreateButton_clicked()
         }
     }
 
+
+    //Other language
+    dir="\\statement-sections\\";
+    if(ui->Language->currentText()!="Russian")
+        dir+="russian",on_Language_currentIndexChanged(0);
+    else
+        dir+="english",on_Language_currentIndexChanged(1);
+
+    dir+="\\";
+    data=ui->ContestName->text();
+    file_out(directory_name+dir+"contest_name.txt",data);
+
+    tl=ui->TimeLimit->value()/1000;
+    ch;
+    if((int)tl!=std::ceil(tl))
+    {
+        ch=QString::number((int)tl);
+    }
+    else
+        ch=QString::number(tl,'f',1);
+    data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" seconds\n"+QString::number(ui->MemoryLimit->value())+" megabytes";
+
+    file_out(directory_name+dir+"restricts.txt",data);
+    file_out(directory_name+dir+"name.tex", ui->TaskName->text());
+    file_out(directory_name+dir+"output.tex", ui->OutputFormat->toPlainText());
+    file_out(directory_name+dir+"input.tex", ui->InputFormat->toPlainText());
+
+    if(ui->Notes->toPlainText()!="")
+    {
+        image_detect(ui->Notes->toPlainText(),directory_name+dir);
+        file_out(directory_name+dir+"notes.tex",ui->Notes->toPlainText());
+    }
+
+    image_detect(ui->Legend->toPlainText(),directory_name+dir);
+    file_out(directory_name+dir+"legend.tex",ui->Legend->toPlainText());
+
+    if(ui->Tutorial->toPlainText()!="")
+    {
+        image_detect(ui->Tutorial->toPlainText(),directory_name+dir);
+        file_out(directory_name+dir+"tutorial.tex",ui->Tutorial->toPlainText());
+    }
+
+    //Samples
+    j=1;
+    ext=".0";
+
+
+    for(int i=0;i<ui->TestCaseTable->rowCount();i++)
+    {
+        //qDebug()<<i<<" "<<(ui->TestCaseTable->    item(i,2)->checkState()== Qt::Checked);
+        if(ui->TestCaseTable->    item(i,1)->checkState()== Qt::Checked)
+        {
+            if(j>=10)
+                ext="";
+            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"sample"+ext+QString::number(j));
+
+            j++;
+        }
+    }
+
+    on_Language_currentIndexChanged((last_language+1)%2);
+
     //Tests
     dir="\\tests\\";
     QString ext1="0";
@@ -623,3 +685,26 @@ void MainWindow::on_CreateButton_clicked()
     QMessageBox::information(this,"Task creator","Task files was created");
     std::cout<<directory_name.toStdString();
 }
+
+void MainWindow::on_Language_currentIndexChanged(int index)
+{
+    if(last_language!=index)
+    {
+        task_name[last_language]=ui->TaskName->text();
+        legend[last_language]=ui->Legend->toPlainText();
+        inputFormat[last_language]=ui->InputFormat->toPlainText();
+        outputFormat[last_language]=ui->OutputFormat->toPlainText();
+        notes[last_language]=ui->Notes->toPlainText();
+        tutorial[last_language]=ui->Tutorial->toPlainText();
+    }
+    last_language=index;
+    ui->TaskName->setText(task_name[index]);
+    ui->Legend->setText(legend[index]);
+    ui->InputFormat->setText(inputFormat[index]);
+    ui->OutputFormat->setText(outputFormat[index]);
+    ui->Tutorial->setText(tutorial[index]);
+    ui->Notes->setText(notes[index]);
+
+
+}
+

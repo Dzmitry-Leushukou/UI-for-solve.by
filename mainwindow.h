@@ -43,7 +43,7 @@ public:
     bool check_statement();
 
     //Fields
-    QString directory_name;
+
 private slots:
 
 
@@ -82,6 +82,8 @@ private slots:
 
     void on_CreateButton_clicked();
 
+    void on_Language_currentIndexChanged(int index);
+
 private:
     //Fields
     Ui::MainWindow *ui;
@@ -91,11 +93,15 @@ private:
     int8_t menu_id=0;
     int image_num=0;
     std::map<QString,QString>image;
-
+    QString directory_name;
     //Style
     const QString incorrect_directory_style="color: rgb(224, 27, 36);";
     const QString correct_directory_style="color: rgb(51, 209, 122);";
     const QString choosed_button ="background-color: rgb(45, 185, 103);color: rgb(0, 0, 0);font: 13pt;";
     const QString default_button ="font:13pt;";
+
+    //Statements
+    QString task_name[2],legend[2],inputFormat[2],outputFormat[2],notes[2],tutorial[2];
+    int last_language=0;
 };
 #endif // MAINWINDOW_H
