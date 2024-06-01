@@ -1,9 +1,0 @@
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/UI.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/list_install_components.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/install.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/install/local.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/install/strip.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/UI_autogen_timestamp_deps.dir
-/home/dzmitry/Programming/Solve/build-UI-Desktop_Qt_6_6_2_GCC_64bit-Debug/CMakeFiles/UI_autogen.dir
