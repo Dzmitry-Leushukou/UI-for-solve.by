@@ -1,25 +1,30 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+QString MainWindow::directory_name="";
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setMaximumHeight(763);
+
     ui->SolutionTable->setColumnCount(1);
     ui->SolutionTable->setColumnWidth(0, 470);
-    ui->SolutionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //ui->SolutionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     //960
-    ui->TestCaseTable->setColumnWidth(0, 446*2);
+    ui->TestCaseTable->setColumnWidth(0, 446*2-64);
     ui->TestCaseTable->setColumnWidth(1, 65);
-
+    //ui->TestCaseTable-
 
     showMenu();
 }
 
 MainWindow::~MainWindow()
 {
+    std::cout<<directory_name.toStdString();
     delete ui;
 }
 
@@ -106,7 +111,7 @@ void MainWindow::showMenu()
     switch(menu_id)
     {
     case 0: //General info
-        ui->label_2->show();
+
         ui->label_3->show();
         ui->label_4->show();
         ui->label_5->show();
@@ -116,7 +121,7 @@ void MainWindow::showMenu()
         ui->label_9->show();
         ui->label_10->show();
         ui->label_11->show();
-        //ui->label_12->show();
+        ui->label_12->show();
         ui->label_13->show();
         ui->label_14->show();
         ui->label_15->show();
@@ -126,7 +131,7 @@ void MainWindow::showMenu()
         ui->line_7->show();
         ui->line_8->show();
 
-        ui->ContestName->show();
+
         ui->InputFile->show();
         ui->OutputFile->show();
         ui->MemoryLimit->show();
@@ -147,18 +152,19 @@ void MainWindow::showMenu()
         break;
 
     case 1://Statement
-
+        ui->ContestName->show();
         ui->Legend->show();
         ui->Language->show();
         ui->TaskName->show();
         ui->InputFormat->show();
         ui->OutputFormat->show();
         ui->Notes->show();
-        ui->Tutorial->show();
+        //ui->Tutorial->show();
         ui->InsertImageInLegend->show();
         ui->InsertImageInNotes->show();
-        ui->InsertImageInTutorial->show();
-        ui->label_17->show();
+        //ui->InsertImageInTutorial->show();
+        //ui->label_17->show();
+        ui->label_2->show();
         ui->label_18->show();
         ui->label_20->show();
         ui->label_21->show();
@@ -188,12 +194,12 @@ void MainWindow::HideMenuElements()
     ui->label_9->hide();
     ui->label_10->hide();
     ui->label_11->hide();
-    //ui->label_12->hide();
+    ui->label_12->hide();
     ui->label_13->hide();
     ui->label_14->hide();
     ui->label_15->hide();
     //ui->label_16->hide();
-    ui->label_17->hide();
+    //ui->label_17->hide();
     ui->label_18->hide();
     ui->label_19->hide();
     ui->label_20->hide();
@@ -233,10 +239,10 @@ void MainWindow::HideMenuElements()
     ui->InputFormat->hide();
     ui->OutputFormat->hide();
     ui->Notes->hide();
-    ui->Tutorial->hide();
+    //ui->Tutorial->hide();
     ui->InsertImageInLegend->hide();
     ui->InsertImageInNotes->hide();
-    ui->InsertImageInTutorial->hide();
+    //ui->InsertImageInTutorial->hide();
     ui->DeleteTestCaseButton->hide();
 }
 
@@ -331,6 +337,7 @@ bool MainWindow::correct_solutions()
 
 bool MainWindow::check_general_info()
 {
+    return true;
     QString str=ui->ContestName->text();
 
     if(str=="")
@@ -381,6 +388,45 @@ bool MainWindow::check_statement()
     }
 
     return true;
+}
+
+QString MainWindow::seconds_rus(int ms)
+{
+    int wholeSeconds = ms%1000;
+    if(wholeSeconds==0)
+        wholeSeconds=ms/1000;
+    else
+        return "секунд";
+    if (wholeSeconds % 10 == 1 && wholeSeconds % 100 != 11) {
+        return "секунда";
+    } else if ((wholeSeconds % 10 >= 2 && wholeSeconds % 10 <= 4) && (wholeSeconds % 100 < 10 || wholeSeconds % 100 >= 20)) {
+        return "секунды";
+    } else {
+        return "секунд";
+    }
+}
+
+QString MainWindow::numb(int t)
+{
+    QString n=QString::number(t),res,b;
+    while(n.size()!=5)
+        n="0"+n;
+    for(int i=0;i<2;i++)
+        res+=n[i];
+    res=QString::number(res.toInt());
+
+    bool have=false;
+    for(int i=2;i<5;i++)
+    {
+        b+=n[i];
+        if(n[i]!='0')
+            have=true;
+    }
+
+    if(have)
+        res+="."+b;
+    //qDebug()<<res;
+    return res;
 }
 
 void MainWindow::on_ChangeDirectoryButton_clicked()
@@ -487,11 +533,6 @@ void MainWindow::on_InsertImageInNotes_clicked()
     ui->Notes->setText(ui->Notes->toPlainText()+insert_image(QFileDialog::getOpenFileName(this,tr("Choose image file"),"", tr("Image (*.jpg)"))));
 }
 
-void MainWindow::on_InsertImageInTutorial_clicked()
-{
-    ui->Tutorial->setText(ui->Tutorial->toPlainText()+insert_image(QFileDialog::getOpenFileName(this,tr("Choose image file"),"", tr("Image (*.jpg)"))));
-}
-
 void MainWindow::on_AddTestCaseButton_clicked()
 {
     QStringList fileNames;
@@ -506,13 +547,20 @@ void MainWindow::on_AddTestCaseButton_clicked()
         QTableWidgetItem *it1=new QTableWidgetItem();
         it1->setText(i);
         ui->TestCaseTable->setItem(ui->TestCaseTable->rowCount()-1, 0, it1);
+        /*
         QTableWidgetItem * it=new QTableWidgetItem();
         it->setCheckState(Qt::Unchecked);
+        it->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+        it->setText("");
         ui->TestCaseTable->setItem(ui->TestCaseTable->rowCount()-1,1,it);
+*/
+        QCheckBox* checkBox = new QCheckBox;
+        checkBox->setStyleSheet("margin-left: 25%; margin-right: 50%;");
+        ui->TestCaseTable->setCellWidget(ui->TestCaseTable->rowCount()-1,1, checkBox);
+
     }
 
 }
-
 
 void MainWindow::on_DeleteTestCaseButton_clicked()
 {
@@ -520,7 +568,6 @@ void MainWindow::on_DeleteTestCaseButton_clicked()
     for(int i = selectedRows.count() - 1; i >= 0; --i)
         ui->TestCaseTable->removeRow(selectedRows.at(i).row());
 }
-
 
 void MainWindow::on_CreateButton_clicked()
 {
@@ -550,15 +597,38 @@ void MainWindow::on_CreateButton_clicked()
     QString data=ui->ContestName->text();
     file_out(directory_name+dir+"contest_name.txt",data);
 
-    double tl=ui->TimeLimit->value()/1000;
-    QString ch;
-    if((int)tl!=std::ceil(tl))
-    {
-        ch=QString::number((int)tl);
-    }
+    int tl=ui->TimeLimit->value();
+    QString ch=numb(tl);
+
+    while(ch.back()=='0')
+        ch.erase(ch.begin()+ch.size()-1);
+    if(ui->Language->currentText()=="English"){
+        data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" ";
+    if(ch=="1")
+        data+="second\n";
+    else  data+="seconds\n";
+    data+=QString::number(ui->MemoryLimit->value())+ "";
+    if(ui->MemoryLimit->value()==1)
+      data+=" megabyte";
+    else data+=" megabytes";
+        }
     else
-        ch=QString::number(tl,'f',1);
-    data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" seconds\n"+QString::number(ui->MemoryLimit->value())+" megabytes";
+    {
+        data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" ";
+
+            data+=seconds_rus(tl);
+        data+="\n"+QString::number(ui->MemoryLimit->value());
+        int megabytes=ui->MemoryLimit->value();
+        if (megabytes % 10 == 1 && megabytes % 100 != 11) {
+           data+= " мегабайт";
+        } else if ((megabytes % 10 >= 2 && megabytes % 10 <= 4) &&
+                   (megabytes % 100 < 10 || megabytes % 100 >= 20)) {
+            data+= " мегабайта";
+        } else {
+            data+= " мегабайт";
+        }
+
+    }
 
     file_out(directory_name+dir+"restricts.txt",data);
     file_out(directory_name+dir+"name.tex", ui->TaskName->text());
@@ -574,11 +644,6 @@ void MainWindow::on_CreateButton_clicked()
         image_detect(ui->Legend->toPlainText(),directory_name+dir);
         file_out(directory_name+dir+"legend.tex",ui->Legend->toPlainText());
 
-    if(ui->Tutorial->toPlainText()!="")
-    {
-        image_detect(ui->Tutorial->toPlainText(),directory_name+dir);
-        file_out(directory_name+dir+"tutorial.tex",ui->Tutorial->toPlainText());
-    }
 
     //Samples
     int j=1;
@@ -587,12 +652,15 @@ void MainWindow::on_CreateButton_clicked()
 
     for(int i=0;i<ui->TestCaseTable->rowCount();i++)
     {
-        //qDebug()<<i<<" "<<(ui->TestCaseTable->    item(i,2)->checkState()== Qt::Checked);
-        if(ui->TestCaseTable->    item(i,1)->checkState()== Qt::Checked)
+
+        QTableWidgetItem* cellItem = ui->TestCaseTable->item(i, 1);
+        QCheckBox* checkBoxInCell = qobject_cast<QCheckBox*>(ui->TestCaseTable->cellWidget(i, 1));
+
+        if(checkBoxInCell->isChecked())
         {
-            if(j>=10)
+            if(j>=9)
                 ext="";
-            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"sample"+ext+QString::number(j));
+            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"example"+ext+QString::number(j));
 
             j++;
         }
@@ -610,16 +678,38 @@ void MainWindow::on_CreateButton_clicked()
     data=ui->ContestName->text();
     file_out(directory_name+dir+"contest_name.txt",data);
 
-    tl=ui->TimeLimit->value()/1000;
-    ch;
-    if((int)tl!=std::ceil(tl))
-    {
-        ch=QString::number((int)tl);
+    tl=ui->TimeLimit->value();
+    ch=numb(tl);
+
+    while(ch.back()=='0')
+        ch.erase(ch.begin()+ch.size()-1);
+    if(ui->Language->currentText()!="English"){
+        data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" ";
+        if(ch=="1")
+            data+="second\n";
+        else  data+="seconds\n";
+        data+=QString::number(ui->MemoryLimit->value())+ "";
+        if(ui->MemoryLimit->value()==1)
+            data+=" megabyte";
+        else data+=" megabytes";
     }
     else
-        ch=QString::number(tl,'f',1);
-    data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" seconds\n"+QString::number(ui->MemoryLimit->value())+" megabytes";
+    {
+        data=ui->InputFile->text()+"\n"+ui->OutputFile->text()+"\n"+ch+" ";
 
+        data+=seconds_rus(tl);
+        data+="\n"+QString::number(ui->MemoryLimit->value());
+        int megabytes=ui->MemoryLimit->value();
+        if (megabytes % 10 == 1 && megabytes % 100 != 11) {
+            data+= " мегабайт";
+        } else if ((megabytes % 10 >= 2 && megabytes % 10 <= 4) &&
+                   (megabytes % 100 < 10 || megabytes % 100 >= 20)) {
+            data+= " мегабайта";
+        } else {
+            data+= " мегабайт";
+        }
+
+    }
     file_out(directory_name+dir+"restricts.txt",data);
     file_out(directory_name+dir+"name.tex", ui->TaskName->text());
     file_out(directory_name+dir+"output.tex", ui->OutputFormat->toPlainText());
@@ -634,12 +724,6 @@ void MainWindow::on_CreateButton_clicked()
     image_detect(ui->Legend->toPlainText(),directory_name+dir);
     file_out(directory_name+dir+"legend.tex",ui->Legend->toPlainText());
 
-    if(ui->Tutorial->toPlainText()!="")
-    {
-        image_detect(ui->Tutorial->toPlainText(),directory_name+dir);
-        file_out(directory_name+dir+"tutorial.tex",ui->Tutorial->toPlainText());
-    }
-
     //Samples
     j=1;
     ext=".0";
@@ -647,12 +731,14 @@ void MainWindow::on_CreateButton_clicked()
 
     for(int i=0;i<ui->TestCaseTable->rowCount();i++)
     {
-        //qDebug()<<i<<" "<<(ui->TestCaseTable->    item(i,2)->checkState()== Qt::Checked);
-        if(ui->TestCaseTable->    item(i,1)->checkState()== Qt::Checked)
+        QTableWidgetItem* cellItem = ui->TestCaseTable->item(i, 1);
+        QCheckBox* checkBoxInCell = qobject_cast<QCheckBox*>(ui->TestCaseTable->cellWidget(i, 1));
+
+        if(checkBoxInCell->isChecked())
         {
-            if(j>=10)
+            if(j>=9)
                 ext="";
-            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"sample"+ext+QString::number(j));
+            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"example"+ext+QString::number(j));
 
             j++;
         }
@@ -665,7 +751,7 @@ void MainWindow::on_CreateButton_clicked()
     QString ext1="0";
     for(int i=0;i<ui->TestCaseTable->rowCount();i++)
     {
-        if(i>=10)
+        if(i>=9)
             ext1="";
         QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+ext1+QString::number(i+1));
     }
@@ -683,7 +769,8 @@ void MainWindow::on_CreateButton_clicked()
     }
 
     QMessageBox::information(this,"Task creator","Task files was created");
-    std::cout<<directory_name.toStdString();
+
+
 }
 
 void MainWindow::on_Language_currentIndexChanged(int index)
@@ -695,16 +782,21 @@ void MainWindow::on_Language_currentIndexChanged(int index)
         inputFormat[last_language]=ui->InputFormat->toPlainText();
         outputFormat[last_language]=ui->OutputFormat->toPlainText();
         notes[last_language]=ui->Notes->toPlainText();
-        tutorial[last_language]=ui->Tutorial->toPlainText();
+        contest_name[last_language]=ui->ContestName->text();
     }
     last_language=index;
     ui->TaskName->setText(task_name[index]);
     ui->Legend->setText(legend[index]);
     ui->InputFormat->setText(inputFormat[index]);
     ui->OutputFormat->setText(outputFormat[index]);
-    ui->Tutorial->setText(tutorial[index]);
     ui->Notes->setText(notes[index]);
+    ui->ContestName->setText(contest_name[index]);
+
+}
 
 
+void MainWindow::on_Exit_clicked()
+{
+    QCoreApplication::quit();
 }
 

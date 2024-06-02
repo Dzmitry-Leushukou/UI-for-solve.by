@@ -16,7 +16,7 @@
   <property name="minimumSize">
    <size>
     <width>1200</width>
-    <height>800</height>
+    <height>763</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -67,9 +67,9 @@
     <property name="geometry">
      <rect>
       <x>976</x>
-      <y>626</y>
+      <y>520</y>
       <width>221</width>
-      <height>40</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -89,14 +89,14 @@
     <property name="geometry">
      <rect>
       <x>976</x>
-      <y>600</y>
+      <y>494</y>
       <width>221</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>13</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -111,7 +111,7 @@
     <property name="geometry">
      <rect>
       <x>970</x>
-      <y>676</y>
+      <y>570</y>
       <width>230</width>
       <height>3</height>
      </rect>
@@ -124,7 +124,7 @@
     <property name="geometry">
      <rect>
       <x>970</x>
-      <y>590</y>
+      <y>484</y>
       <width>230</width>
       <height>3</height>
      </rect>
@@ -170,7 +170,7 @@
    <widget class="QPushButton" name="Statement">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>976</x>
       <y>110</y>
       <width>220</width>
       <height>41</height>
@@ -189,7 +189,7 @@
    <widget class="QPushButton" name="Tests">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>976</x>
       <y>170</y>
       <width>221</width>
       <height>41</height>
@@ -221,9 +221,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>121</width>
+      <x>394</x>
+      <y>7</y>
+      <width>131</width>
       <height>20</height>
      </rect>
     </property>
@@ -239,8 +239,8 @@
    <widget class="QLineEdit" name="ContestName">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>10</y>
+      <x>520</x>
+      <y>7</y>
       <width>300</width>
       <height>21</height>
      </rect>
@@ -251,7 +251,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Contest</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLineEdit" name="InputFile">
@@ -477,10 +477,10 @@
    <widget class="QLineEdit" name="CheckerPath">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>250</y>
+      <x>1</x>
+      <y>238</y>
       <width>351</width>
-      <height>31</height>
+      <height>29</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -491,7 +491,7 @@
     <property name="geometry">
      <rect>
       <x>369</x>
-      <y>250</y>
+      <y>238</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -504,9 +504,9 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>277</y>
+      <y>267</y>
       <width>66</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -516,10 +516,10 @@
    <widget class="QPlainTextEdit" name="CheckerCode">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>370</y>
-      <width>471</width>
-      <height>420</height>
+      <x>1</x>
+      <y>350</y>
+      <width>468</width>
+      <height>410</height>
      </rect>
     </property>
    </widget>
@@ -527,7 +527,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>300</y>
+      <y>280</y>
       <width>481</width>
       <height>31</height>
      </rect>
@@ -542,10 +542,10 @@
    <widget class="QComboBox" name="CheckerLanguage">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>330</y>
+      <x>1</x>
+      <y>310</y>
       <width>93</width>
-      <height>31</height>
+      <height>29</height>
      </rect>
     </property>
     <item>
@@ -604,10 +604,10 @@
    <widget class="QLineEdit" name="ValidatorPath">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>491</x>
       <y>40</y>
-      <width>351</width>
-      <height>31</height>
+      <width>348</width>
+      <height>29</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -635,8 +635,8 @@
      <rect>
       <x>490</x>
       <y>160</y>
-      <width>471</width>
-      <height>290</height>
+      <width>468</width>
+      <height>280</height>
      </rect>
     </property>
     <property name="plainText">
@@ -667,9 +667,9 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>470</y>
+      <y>450</y>
       <width>481</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -683,7 +683,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>470</y>
+      <y>450</y>
       <width>490</width>
       <height>3</height>
      </rect>
@@ -695,9 +695,9 @@
    <widget class="QTableWidget" name="SolutionTable">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>510</y>
-      <width>471</width>
+      <x>492</x>
+      <y>477</y>
+      <width>465</width>
       <height>251</height>
      </rect>
     </property>
@@ -728,7 +728,7 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>770</y>
+      <y>735</y>
       <width>230</width>
       <height>25</height>
      </rect>
@@ -741,7 +741,7 @@
     <property name="geometry">
      <rect>
       <x>730</x>
-      <y>770</y>
+      <y>735</y>
       <width>230</width>
       <height>25</height>
      </rect>
@@ -753,10 +753,10 @@
    <widget class="QPushButton" name="AddTestCaseButton">
     <property name="geometry">
      <rect>
-      <x>6</x>
-      <y>774</y>
+      <x>1</x>
+      <y>730</y>
       <width>475</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -769,14 +769,14 @@
       <x>0</x>
       <y>0</y>
       <width>960</width>
-      <height>760</height>
+      <height>721</height>
      </rect>
     </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>479</number>
     </attribute>
     <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <column>
      <property name="text">
@@ -789,29 +789,13 @@
      </property>
     </column>
    </widget>
-   <widget class="QLabel" name="label_17">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>620</y>
-      <width>91</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Tutorial</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="Notes">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>442</y>
-      <width>751</width>
-      <height>171</height>
+      <x>100</x>
+      <y>560</y>
+      <width>741</width>
+      <height>200</height>
      </rect>
     </property>
    </widget>
@@ -819,9 +803,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>340</y>
+      <y>430</y>
       <width>91</width>
-      <height>91</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
@@ -836,9 +820,9 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>60</y>
+      <y>73</y>
       <width>91</width>
-      <height>171</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="text">
@@ -852,9 +836,9 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>440</y>
+      <y>567</y>
       <width>91</width>
-      <height>171</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="text">
@@ -867,27 +851,26 @@ format:</string>
    <widget class="QLabel" name="label_22">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>20</y>
-      <width>571</width>
-      <height>41</height>
+      <x>394</x>
+      <y>32</y>
+      <width>561</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">color:rgb(119, 118, 123)</string>
     </property>
     <property name="text">
-     <string>If you don't need a caption under the image (jpg format only), then remove the
-\caption ...</string>
+     <string>For remove the caption under image (jpg only) remove &quot;\caption ...&quot;  line</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_23">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>240</y>
+      <y>290</y>
       <width>91</width>
-      <height>91</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="text">
@@ -901,9 +884,9 @@ format:</string>
    <widget class="QLineEdit" name="TaskName">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>32</y>
-      <width>291</width>
+      <x>100</x>
+      <y>37</y>
+      <width>281</width>
       <height>23</height>
      </rect>
     </property>
@@ -912,9 +895,9 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>845</x>
-      <y>442</y>
+      <y>560</y>
       <width>120</width>
-      <height>171</height>
+      <height>200</height>
      </rect>
     </property>
     <property name="text">
@@ -928,7 +911,7 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>30</y>
+      <y>37</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -943,10 +926,10 @@ format:</string>
    <widget class="QTextEdit" name="Legend">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>62</y>
-      <width>751</width>
-      <height>171</height>
+      <x>100</x>
+      <y>70</y>
+      <width>741</width>
+      <height>209</height>
      </rect>
     </property>
    </widget>
@@ -954,9 +937,9 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>845</x>
-      <y>62</y>
+      <y>70</y>
       <width>120</width>
-      <height>171</height>
+      <height>209</height>
      </rect>
     </property>
     <property name="text">
@@ -969,20 +952,10 @@ format:</string>
    <widget class="QTextEdit" name="OutputFormat">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>342</y>
-      <width>871</width>
-      <height>91</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="Tutorial">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>622</y>
-      <width>751</width>
-      <height>171</height>
+      <x>100</x>
+      <y>425</y>
+      <width>865</width>
+      <height>120</height>
      </rect>
     </property>
    </widget>
@@ -992,7 +965,7 @@ format:</string>
       <x>0</x>
       <y>0</y>
       <width>91</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -1002,29 +975,13 @@ format:</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="InsertImageInTutorial">
-    <property name="geometry">
-     <rect>
-      <x>845</x>
-      <y>622</y>
-      <width>120</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Insert image</string>
-    </property>
-    <property name="icon">
-     <iconset theme="image-x-generic"/>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="InputFormat">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>242</y>
-      <width>871</width>
-      <height>91</height>
+      <x>100</x>
+      <y>290</y>
+      <width>865</width>
+      <height>120</height>
      </rect>
     </property>
    </widget>
@@ -1032,7 +989,7 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>970</x>
-      <y>750</y>
+      <y>714</y>
       <width>230</width>
       <height>3</height>
      </rect>
@@ -1058,9 +1015,9 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>975</x>
-      <y>760</y>
+      <y>714</y>
       <width>221</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -1077,9 +1034,9 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>482</x>
-      <y>774</y>
-      <width>475</width>
-      <height>21</height>
+      <y>730</y>
+      <width>479</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -1090,7 +1047,7 @@ format:</string>
     <property name="geometry">
      <rect>
       <x>976</x>
-      <y>686</y>
+      <y>580</y>
       <width>221</width>
       <height>51</height>
      </rect>
@@ -1105,7 +1062,7 @@ format:</string>
    <widget class="QPushButton" name="GeneralInfo">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>976</x>
       <y>50</y>
       <width>220</width>
       <height>41</height>
@@ -1136,11 +1093,16 @@ font: 13pt;</string>
    <widget class="QComboBox" name="Language">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>3</y>
-      <width>291</width>
-      <height>23</height>
+      <width>281</width>
+      <height>26</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -1152,6 +1114,51 @@ font: 13pt;</string>
       <string>English</string>
      </property>
     </item>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>481</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Formats and limits</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Exit">
+    <property name="geometry">
+     <rect>
+      <x>976</x>
+      <y>650</y>
+      <width>221</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+    <property name="icon">
+     <iconset theme="emblem-default"/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_11">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>640</y>
+      <width>230</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
    </widget>
   </widget>
  </widget>
