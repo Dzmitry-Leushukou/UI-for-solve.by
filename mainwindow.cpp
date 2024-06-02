@@ -661,6 +661,8 @@ void MainWindow::on_CreateButton_clicked()
             if(j>=9)
                 ext="";
             QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+"example"+ext+QString::number(j));
+            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+"\\statements\\english\\"+"example"+ext+QString::number(j));
+            QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+"\\statements\\russian\\"+"example"+ext+QString::number(j));
 
             j++;
         }

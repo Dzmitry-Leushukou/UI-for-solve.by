@@ -1,4 +1,0 @@
-standart input
-standart output
-0.001 seconds
-1 megabyte
