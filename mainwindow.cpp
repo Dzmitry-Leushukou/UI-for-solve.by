@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    std::cout<<directory_name.toStdString();
+    qDebug()<<qPrintable(directory_name);
     delete ui;
 }
 
