@@ -758,9 +758,9 @@ void MainWindow::on_CreateButton_clicked()
         QFile::copy(ui->TestCaseTable->    item(i,0)->text(),directory_name+dir+ext1+QString::number(i+1));
     }
 
-    QFile::copy(checker_path, directory_name+"\\checker.cpp");
+    QFile::copy(checker_path, directory_name+"\\check.cpp");
     QFile::copy(validator_path, directory_name+"\\files\\"+"validator.cpp");
-    QFile::copy(checker_path, directory_name+"\\files\\"+"checker.cpp");
+    QFile::copy(checker_path, directory_name+"\\files\\"+"check.cpp");
 
     //Solution
     for(int i=0;i<ui->SolutionTable->rowCount();i++)
